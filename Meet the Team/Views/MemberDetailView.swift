@@ -18,7 +18,7 @@ class MemberDetailView: UIView {
         return imageView
     }()
     
-    var profileImageViewHeightConstraint: NSLayoutConstraint?
+    public var profileImageViewHeightConstraint: NSLayoutConstraint?
 
     lazy public var tableView: UITableView = {
         let tableView = UITableView()

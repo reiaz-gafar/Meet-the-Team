@@ -11,8 +11,8 @@ import UIKit
 class MemberDetailViewController: UIViewController {
     
     // MARK: - Properties
-    let memberDetailView = MemberDetailView()
-    let member: Member
+    private let memberDetailView = MemberDetailView()
+    private let member: Member
     
     // MARK: - Initializers
     init(member: Member) {
@@ -36,7 +36,12 @@ class MemberDetailViewController: UIViewController {
         setupProfileImage()
     }
     
-    // MARK: - Initial UI Setup
+    // MARK: - Navigation Bar Setup
+    private func setupNavigationBar() {
+        navigationItem.title = member.name.components(separatedBy: " ")[0]
+    }
+    
+    // MARK: - Setup Functions
     private func setupProfileImage() {
         ImageHelper.manager.getImage(from: member.profile_image) { (image, error) in
             if let error = error {
@@ -48,12 +53,6 @@ class MemberDetailViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Navigation Bar Setup
-    private func setupNavigationBar() {
-        navigationItem.title = member.name.components(separatedBy: " ")[0]
-    }
-
 }
 
 // MARK: - Table View Data Source Methods
@@ -78,6 +77,5 @@ extension MemberDetailViewController: UITableViewDelegate {
             self.memberDetailView.profileImageView.layoutIfNeeded()
         }
     }
-    
 }
 

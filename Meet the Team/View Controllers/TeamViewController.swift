@@ -11,8 +11,8 @@ import UIKit
 class TeamViewController: UIViewController {
     
     // MARK: - Properties
-    let teamView = TeamView()
-    var members = [Member]() {
+    private let teamView = TeamView()
+    private var members = [Member]() {
         didSet {
             DispatchQueue.main.async {
                 self.teamView.tableView.reloadData()
@@ -31,6 +31,12 @@ class TeamViewController: UIViewController {
         loadData()
     }
     
+    // MARK: - Navigation Bar Setup
+    private func setupNavigationBar() {
+        navigationItem.title = "Meet The Team"
+    }
+    
+    // MARK: - Setup Functions
     private func loadData() {
         JSONClient.parseJSON { (members, error) in
             if let error = error {
@@ -39,11 +45,6 @@ class TeamViewController: UIViewController {
                 self.members = members
             }
         }
-    }
-    
-    // MARK: - Navigation Bar Setup
-    private func setupNavigationBar() {
-        navigationItem.title = "Meet The Team"
     }
 
 }

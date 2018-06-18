@@ -30,19 +30,19 @@ class TrapezoidView: UIView {
         backgroundColor = .white
     }
     
-    // MARK: - Custom Shape Using Bezier Path
+    // MARK: - Custom Shape Using Bezier Path: Trapezoid
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: -5.0, y: 5.0))
-        path.addLine(to: CGPoint(x: self.frame.size.width + 5, y: 103))
-        path.addLine(to: CGPoint(x: self.frame.size.width + 5, y: self.frame.size.height + 5))
-        path.addLine(to: CGPoint(x: -5.0, y: self.frame.size.height + 5))
+        path.move(to: CGPoint(x: -6.0, y: 6.0))
+        path.addLine(to: CGPoint(x: self.frame.size.width + 6, y: 95))
+        path.addLine(to: CGPoint(x: self.frame.size.width + 6, y: self.frame.size.height + 6))
+        path.addLine(to: CGPoint(x: -6.0, y: self.frame.size.height + 6))
         path.close()
 
         UIColor.white.setFill()
         path.fill()
         
-        path.lineWidth = 5
+        path.lineWidth = 6
         Styles.Color.cmbBlue.setStroke()
         path.stroke()
     }

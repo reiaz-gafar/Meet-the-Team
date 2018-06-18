@@ -10,17 +10,22 @@ import Foundation
 
 import UIKit
 
+// MARK: - Custom Error For ImageHelper
 enum ImageError: Error {
     case badUrl
     case badData
 }
 
 class ImageHelper {
+    
+    // MARK: - Singleton Design
     private init() {}
     static let manager = ImageHelper()
     
+    // MARK: - Properties
     private let imageCache = NSCache<NSString, UIImage>()
     
+    // MARK: - Private Functions
     private func addImage(with urlStr: String, and image: UIImage) {
         imageCache.setObject(image, forKey: urlStr as NSString)
     }
@@ -29,7 +34,7 @@ class ImageHelper {
         return imageCache.object(forKey: urlStr as NSString)
     }
     
-    
+    // MARK: - Public Functions
     public func getImage(from urlStr: String,
                          completion: @escaping (UIImage?, Error?) -> Void) {
         if let image = getImage(with: urlStr) {
@@ -40,6 +45,7 @@ class ImageHelper {
             URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let error = error {
                     completion(nil, error)
+                    return
                 } else if let data = data {
                     if let image = UIImage(data: data) {
                         self.addImage(with: urlStr, and: image)
@@ -47,6 +53,7 @@ class ImageHelper {
                         return
                     } else {
                         completion(nil, ImageError.badData)
+                        return
                     }
                 }
             }.resume()

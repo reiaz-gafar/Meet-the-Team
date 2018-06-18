@@ -11,19 +11,19 @@ import UIKit
 class BioTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    lazy var blankView: UIView = {
+    lazy public var blankView: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
     }()
     
-    lazy var containerView: TrapezoidView = {
+    lazy public var containerView: TrapezoidView = {
         let view = TrapezoidView(frame: bounds)
         view.backgroundColor = .clear
         return view
     }()
     
-    lazy var nameLabel: UILabel = {
+    lazy public var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailTitle
@@ -31,7 +31,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var positionLabel: UILabel = {
+    lazy public var positionLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailSubTitle
@@ -39,7 +39,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var personalityTitleLabel: UILabel = {
+    lazy public var personalityTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailLarge
@@ -48,7 +48,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var personalityLabel: UILabel = {
+    lazy public var personalityLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailSmall
@@ -56,7 +56,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var interestsTitleLabel: UILabel = {
+    lazy public var interestsTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailLarge
@@ -65,7 +65,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var interestsLabel: UILabel = {
+    lazy public var interestsLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailSmall
@@ -73,7 +73,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var datingPreferencesTitleLabel: UILabel = {
+    lazy public var datingPreferencesTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailLarge
@@ -82,7 +82,7 @@ class BioTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var datingPreferencesLabel: UILabel = {
+    lazy public var datingPreferencesLabel: UILabel = {
         let label = UILabel()
         label.textColor = Styles.Color.cmbGrey
         label.font = Styles.Font.detailSmall
