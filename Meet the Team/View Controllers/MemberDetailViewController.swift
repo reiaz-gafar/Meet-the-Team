@@ -31,6 +31,7 @@ class MemberDetailViewController: UIViewController {
         memberDetailView.tableView.dataSource = self
         memberDetailView.tableView.delegate = self
         memberDetailView.tableView.estimatedRowHeight = 1000
+        memberDetailView.tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 60.0, right: 0.0)
         setupNavigationBar()
         setupProfileImage()
     }
@@ -63,13 +64,7 @@ extension MemberDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bioCell", for: indexPath) as! BioTableViewCell
-                
-        cell.nameLabel.text = member.name
-        cell.positionLabel.text = member.position
-        cell.personalityLabel.text = member.personality
-        cell.interestsLabel.text = member.interests
-        cell.datingPreferencesLabel.text = member.dating_preferences
-        
+        cell.configureCell(with: member)
         return cell
     }
 }

@@ -125,6 +125,14 @@ class BioTableViewCell: UITableViewCell {
         setupDatingPreferencesLabel()
     }
     
+    public func configureCell(with member: Member) {
+        nameLabel.text = member.name
+        positionLabel.text = member.position
+        personalityLabel.text = member.personality
+        interestsLabel.text = member.interests
+        datingPreferencesLabel.text = member.dating_preferences
+    }
+    
 }
 
 // MARK: - Subview Setup
@@ -136,7 +144,7 @@ extension BioTableViewCell {
             blankView.topAnchor.constraint(equalTo: topAnchor),
             blankView.leadingAnchor.constraint(equalTo: leadingAnchor),
             blankView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            blankView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.33),
+            blankView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.50 - containerView.offsetHeight),
             ])
     }
     

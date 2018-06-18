@@ -26,11 +26,12 @@ class TeamViewController: UIViewController {
         view.addSubview(teamView)
         teamView.tableView.dataSource = self
         teamView.tableView.delegate = self
+        teamView.tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 60.0, right: 0.0)
         setupNavigationBar()
+        loadData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private func loadData() {
         JSONClient.parseJSON { (members, error) in
             if let error = error {
                 print(error)
@@ -56,19 +57,7 @@ extension TeamViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell", for: indexPath) as! MemberTableViewCell
         let member = members[indexPath.row]
-        
-        ImageHelper.manager.getImage(from: member.profile_image) { (image, error) in
-            if let error = error {
-                print("error setting profile image: \(error)")
-            } else if let image = image {
-                DispatchQueue.main.async {
-                    cell.profileImageView.image = image
-                }
-            }
-        }
-        
-        cell.nameLabel.text = member.name
-        cell.positionLabel.text = member.position
+        cell.configureCell(with: member)
         return cell
     }
 }

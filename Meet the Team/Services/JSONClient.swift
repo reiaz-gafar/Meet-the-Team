@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JSONClient {
+struct JSONClient {
     static func loadData(completion: @escaping (Data?, Error?) -> Void) {
         if let path = Bundle.main.path(forResource: "team", ofType: "json") {
             let jsonURL = URL(fileURLWithPath: path)

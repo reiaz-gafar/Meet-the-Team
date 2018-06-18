@@ -65,6 +65,20 @@ class MemberTableViewCell: UITableViewCell {
         setupNameLabel()
         setupPositionLabel()
     }
+    
+    public func configureCell(with member: Member) {
+        ImageHelper.manager.getImage(from: member.profile_image) { (image, error) in
+            if let error = error {
+                print("error setting profile image: \(error)")
+            } else if let image = image {
+                DispatchQueue.main.async {
+                    self.profileImageView.image = image
+                }
+            }
+        }
+        nameLabel.text = member.name
+        positionLabel.text = member.position
+    }
 
 }
 

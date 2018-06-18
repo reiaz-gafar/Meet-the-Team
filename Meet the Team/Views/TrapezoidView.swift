@@ -10,6 +10,11 @@ import UIKit
 
 class TrapezoidView: UIView {
     
+    // MARK: - Properties
+    var offsetHeight: CGFloat {
+        return self.bounds.height * 2.5
+    }
+    
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,11 +34,11 @@ class TrapezoidView: UIView {
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: -5.0, y: 5.0))
-        path.addLine(to: CGPoint(x: self.frame.size.width + 5, y: self.frame.size.height * 0.20))
+        path.addLine(to: CGPoint(x: self.frame.size.width + 5, y: 103))
         path.addLine(to: CGPoint(x: self.frame.size.width + 5, y: self.frame.size.height + 5))
         path.addLine(to: CGPoint(x: -5.0, y: self.frame.size.height + 5))
         path.close()
-        
+
         UIColor.white.setFill()
         path.fill()
         
