@@ -3,9 +3,9 @@
 ### In-App Gifs
 
 
-![Alt Text](http://media.giphy.com/media/39wmwcCu8W8tIMSAFp/giphy.gif)
+![Gif 1](http://media.giphy.com/media/39wmwcCu8W8tIMSAFp/giphy.gif)
 
-![Alt Text](http://media.giphy.com/media/9VrC3Dd9hRhrcnhDfQ/giphy.gif)
+![Gif 2](http://media.giphy.com/media/9VrC3Dd9hRhrcnhDfQ/giphy.gif)
 
 ### How To Run
 
